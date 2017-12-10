@@ -1,0 +1,82 @@
+{
+  "name": "timma-electron",
+  "productName": "Timma-site",
+  "title": "Timma",
+  "version": "v1.0.0",
+  "description": "Workilte Client",
+  "main": "./app/init.js",
+  "build": {
+    "appId": "timma",
+    "artifactName": "${name}-${version}-${os}.${ext}",
+    "mac": {
+      "category": "public.app-category.productivity",
+      "icon": "./app/resources/icon.icns"
+    },
+    "dmg": {
+      "icon": "./app/resources/volume.icns"
+    },
+    "win": {
+      "icon": "./app/resources/icon.ico",
+      "certificateSubjectName": "Timma"
+    },
+    "squirrelWindows": {
+      "iconUrl": "./app/resources/icon.ico"
+    },
+    "directories": {
+      "output": "release"
+    }
+  },
+  "scripts": {
+    "start": "electron ./",
+    "dev": "NODE_ENV=dev electron --inspect=5858 ./",
+    "start:local": "NODE_ENV=local electron ./",
+    "build:mac": "build --mac",
+    "build:win": "build --win --ia32",
+    "build:win64": "build --win --x64"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/machuanjia/timma-electron.git"
+  },
+  "author": "Timma",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/machuanjia/timma-electron/issues"
+  },
+  "homepage": "https://github.com/machuanjia/timma-electron/blob/master/README.md",
+  "dependencies": {
+    "async": "^2.0.1",
+    "electron-context-menu": "^0.9.1",
+    "electron-json-storage": "git+https://github.com/zhenshuaiwws/electron-json-storage.git",
+    "electron-osx-appearance": "^0.1.1",
+    "electron-squirrel-startup": "^1.0.0",
+    "electron-updater": "^2.16.1",
+    "electron-window-state": "^4.1.1",
+    "i18n": "^0.8.3",
+    "lodash": "^4.16.4",
+    "moment": "^2.18.1",
+    "request": "^2.78.0",
+    "vue": "^2.3.0"
+  },
+  "devDependencies": {
+    "babel-core": "^6.14.0",
+    "babel-plugin-add-module-exports": "^0.2.1",
+    "babel-polyfill": "^6.13.0",
+    "babel-preset-es2015": "^6.14.0",
+    "babel-preset-stage-0": "^6.5.0",
+    "babel-register": "^6.14.0",
+    "bootstrap": "^3.3.7",
+    "commander": "^2.9.0",
+    "cross-env": "^2.0.1",
+    "del": "^2.2.2",
+    "electron": "^1.7.9",
+    "electron-builder": "^19.48.3",
+    "electron-packager": "^8.7.2",
+    "electron-winstaller": "^2.6.3",
+    "gulp": "^3.9.1",
+    "gulp-less": "^3.3.0",
+    "gulp-watch-less2": "^2.0.4",
+    "rimraf": "^2.5.4",
+    "webpack": "^2.1.0-beta.22"
+  }
+}

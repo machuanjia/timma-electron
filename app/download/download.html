@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+
+        html,
+        body,
+        dl,
+        dd {
+            margin  : 0;
+            padding : 0;
+        }
+
+        body {
+            font-family : "Helvetica Neue", helvetica, 'lucida grande', 'lucida sans unicode', lucida, 'Hiragino Sans GB', 'Microsoft YaHei', 'WenQuanYi Micro Hei', sans-serif;
+            font-size   : 14px;
+        }
+
+        .main-body {
+            position   : fixed;
+            top        : 0;
+            right      : 0;
+            bottom     : 29px;
+            left       : 0;
+            overflow-y : auto;
+        }
+
+        .main-body--empty {
+            display : flex;
+        }
+
+        .main-body--empty .list-area {
+            display : none;
+        }
+
+        .main-body--empty .empty-text {
+            margin : auto;
+        }
+
+        .list {
+
+        }
+
+        .list dd {
+            display       : flex;
+            padding       : 10px 0 10px 5px;
+            border-bottom : solid 1px lightgray;
+            transition: background .3s;
+        }
+
+        .list dd:hover,
+        .list dd.active {
+            background : whitesmoke;
+        }
+
+        .list .file-icon {
+            display : flex;
+            width   : 50px;
+        }
+
+        .list .file-icon .fa {
+            margin    : 0 auto;
+            font-size : 30px;
+            color     : lightgray;
+        }
+
+        .list .file-info {
+            flex  : 1;
+            width : 0;
+        }
+
+        .list .file-action {
+            display       : flex;
+            padding-right : 10px;
+            width         : 50px;
+        }
+
+        .list .file-action a {
+            margin : auto;
+            color  : lightgray;
+            transition: color .3s;
+        }
+
+        .list .file-action a:hover {
+            color : gray;
+        }
+
+        .list .file-meta-area {
+            margin-top : 5px;
+        }
+
+        .list .file-meta {
+            margin-right: 5px;
+            font-size : 12px;
+            color     : gray;
+        }
+
+        .list-empty {
+            line-height : 50px;
+            text-align  : center;
+        }
+
+        .footer {
+            position    : fixed;
+            bottom      : 0;
+            left        : 0;
+            right       : 0;
+            z-index     : 10;
+            padding     : 0 20px;
+            height      : 30px;
+            line-height : 30px;
+            background  : whitesmoke;
+            text-align  : right;
+            box-shadow  : 0 0px 10px rgba(1, 1, 0, 0.2);
+        }
+
+        .footer .clean-all-btn {
+            color : gray;
+        }
+
+        .file-fail .file-title {
+            color           : gray;
+            text-decoration : line-through;
+        }
+
+        .visibility-hidden {
+            visibility : hidden;
+        }
+    </style>
+    <script src="../../node_modules/vue/dist/vue.min.js"></script>
+    <link rel="stylesheet" href="../resources/css/font-awesome.min.css"/>
+</head>
+<body>
+<div class="vue-app">
+    <div class="main-body">
+        <div class="list-area">
+            <dl class="list" v-for="file in orderedList">
+                <dd @dblclick="openFolder(file)" v-bind:class="{'file-fail':file.isDone && file.state!='completed'}"
+                    v-bind:style="{background:backgroundStyle(file)}">
+                    <div class="file-icon">
+                        <i class="fa fa-file-o" aria-hidden="true"></i>
+                    </div>
+                    <div class="file-info">
+                        <div class="file-title">
+                            {{file.name}}
+                        </div>
+                        <div class="file-meta-area">
+                            <span class="file-meta">{{file.totalSize | sizeDisplay}}</span>
+                            <span class="file-meta">{{file.createdAt | dtAutoFullFormat}}</span>
+                            <span class="file-meta" v-if="file.isDone">{{file.state}}</span>
+                            <span class="file-meta" v-else="file.isDone">{{Math.floor(file.receivedSize/file.totalSize*100)}}%</span>
+                        </div>
+                    </div>
+                    <div class="file-action">
+                        <a href="javascript:;" :title="i18n.__('download.openFolder')"
+                           v-bind:class="{'visibility-hidden' : file.isDone && file.state!='completed'}"
+                           @click="openFolder(file)"><i class="fa fa-search" aria-hidden="true"></i></a>
+                        <a href="javascript:;" :title="i18n.__('download.delete')"
+                           @click="deleteItem(file)"><i class="fa fa-times" aria-hidden="true"></i></a>
+                    </div>
+                </dd>
+            </dl>
+        </div>
+        <div class="list-empty" v-if="list.length==0">{{i18n.__('download.empty')}}</div>
+    </div>
+    <div class="footer">
+        <a href="javascript:;" class="clean-all-btn" @click="cleanAllFile()" :title="i18n.__('download.cleanALL')"><i
+                class="fa fa-trash-o"
+                aria-hidden="true"></i></a>
+    </div>
+</div>
+</body>
+</html>
