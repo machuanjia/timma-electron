@@ -19,7 +19,7 @@
     "close": "閉鎖",
     "ok": "良い",
     "help": "助ける",
-    "helper": "助ける Worktile",
+    "helper": "助ける",
     "preferences": "選好設定",
     "services": "サービス",
     "hide": "隠す",
@@ -39,13 +39,13 @@
     "history": "歴史記録",
     "back": "後退",
     "forward": "進む",
-    "huatuo": "検査Worktile実行環境"
+    "huatuo": "検査実行環境"
   },
   "dialog": {
     "currentVersion": "現在のバージョン",
     "updateLog": "更新日の更新",
     "checkVersion": "新版を検査",
-    "isNewVersion": "あなたはすでに最新版のをインストールしました Worktile",
+    "isNewVersion": "あなたはすでに最新版のをインストールしました",
     "ok": "良い",
     "needUpdate": "新バージョンがある",
     "needUpdateText": "新しいバージョンがあるとみて、今からダウンロードに行きます？",

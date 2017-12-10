@@ -150,7 +150,7 @@ function createWindow() {
                 app.quit();
             }
         }]);
-        global.tray.setToolTip('Worktile');
+        global.tray.setToolTip('Timma');
         global.tray.setContextMenu(contextMenu);
     }
     global.tray.on('click', () => {

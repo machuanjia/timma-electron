@@ -1,7 +1,7 @@
 module.exports = exports = {
     defaultLoadURL: "https://machuanjia.github.io/",
     defaultSignInURL: "https://machuanjia.github.io/",
-    changeUrlRegOut: /^https:\/\/(|pro|www|wt-box|my)\.?worktile\.com/,
+    changeUrlRegOut: /^https:\/\/(|pro|www|wt-box|my)\.?timma\.com/,
     checkVersionURL: 'https://machuanjia.github.io/',
     helpURL: 'https://machuanjia.github.io/',
     huatuoURL: 'https://machuanjia.github.io/',

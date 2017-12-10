@@ -19,7 +19,7 @@
     "close": "关闭",
     "ok": "好",
     "help": "帮助",
-    "helper": "帮助 Worktile",
+    "helper": "帮助",
     "preferences": "偏好设置",
     "services": "服务",
     "hide": "隐藏",
@@ -39,13 +39,13 @@
     "history": "历史记录",
     "back": "后退",
     "forward": "前进",
-    "huatuo": "检查 Worktile 运行环境"
+    "huatuo": "检查 运行环境"
   },
   "dialog": {
     "currentVersion": "当前版本",
     "updateLog": "更新日志",
     "checkVersion": "检查新版",
-    "isNewVersion": "您已经安装了最新版本的 Worktile",
+    "isNewVersion": "您已经安装了最新版本的",
     "ok": "好",
     "needUpdate": "有新版本",
     "needUpdateText": "检查到有新版本，现在就去下载？",
